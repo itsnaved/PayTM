@@ -1,0 +1,1 @@
+export const JWT_SECRET= "Nav3dS3cr#t";
