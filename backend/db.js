@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 
 mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("✅ MongoDB connected"))
-.catch(err => console.error("❌ MongoDB connection error:", err));
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.error("MongoDB connection error:", err));
 
 
 const UserSchema= new mongoose.Schema({
@@ -38,8 +38,23 @@ const UserSchema= new mongoose.Schema({
     }
 })   
 
-const User= mongoose.model('User', UserSchema);
+const accountSchema= new mongoose.Schema({
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    balance:{
+        type: Number,
+        required: true
+    }
+})
 
-module.exports={
-    User
+
+const User= mongoose.model('User', UserSchema);
+const Account= mongoose.model('Account', accountSchema);
+
+module.exports = {
+	User,
+    Account
 };
