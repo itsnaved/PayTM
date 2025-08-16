@@ -1,1 +1,4 @@
-export const JWT_SECRET= "Nav3dS3cr#t";
+//backend/config.js
+module.exports = {
+	JWT_SECRET: "your-jwt-secret"
+}

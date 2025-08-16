@@ -1,8 +1,8 @@
 const express= require('express');
-import { JWT_SECRET } from '../config';
 const jwt= require ("jsonwebtoken");
 const zod= require('zod');
 const { User } = require("../db");
+const { JWT_SECRET } = require('../config');
 const router= express.Router();
 
 const signupSchema= zod.object({
